@@ -1,4 +1,6 @@
 import React from "react";
+import testUtils from "react-dom/test-utils";
+import TaskInput from "./components/TaskInput/TaskInput"
 import Task from "./components/Task/Task"
 import tasksData from "./TasksData";
 
@@ -31,6 +33,18 @@ class App extends React.Component {
         });
     }
 
+    addNewTask = (newTask) => {
+        this.setState (state => {
+            let {tasks} = state;
+            tasks.push({
+                id: tasks.length !== 0 ? tasks.length : 0,
+                text: newTask,
+                completed: false
+            });
+            return tasks;
+        });
+    }
+
     render () {
         const {tasks} = this.state;
 
@@ -49,18 +63,10 @@ class App extends React.Component {
 
         return (
             <div className="App">
-                <div className="taskInput">
-                    <input 
-                        type={"text"}
-                        placeholder="Введите задачу"
-                        />
-                    <button className="acceptButton"/>
-                </div>
-                <select className="taskType">
-                    <option selected>Все задачи</option>
-                    <option>Текущие задачи</option>
-                    <option>Выполненные задачи</option>
-                </select>
+                <TaskInput
+                    addNewTask={this.addNewTask}
+                    />
+
                 <div className="taskBoard">
                     {allTasks}
                 </div>
