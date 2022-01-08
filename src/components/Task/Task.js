@@ -4,7 +4,7 @@ class Task extends React.Component {
     render() {
         return (
             <div className="task">
-                <p style={ this.props.completed === true ? {textDecoration: 'line-through'} : {} }>
+                <p style={ this.props.completed ? {textDecoration: 'line-through'} : {textDecoration: 'none'} }>
                     <input 
                         type={"checkbox"} 
                         defaultChecked={this.props.completed}

@@ -18,7 +18,7 @@ class App extends React.Component {
 
         this.setState (state => {
             let {tasks} = state;
-            tasks[index].completed = true;
+            tasks[index].completed = !tasks[index].completed;
             return tasks;
         });
     }
