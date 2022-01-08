@@ -1,5 +1,4 @@
 import React from "react";
-import testUtils from "react-dom/test-utils";
 import TaskInput from "./components/TaskInput/TaskInput"
 import Task from "./components/Task/Task"
 import tasksData from "./TasksData";
@@ -36,12 +35,17 @@ class App extends React.Component {
     addNewTask = (newTask) => {
         this.setState (state => {
             let {tasks} = state;
-            tasks.push({
-                id: tasks.length !== 0 ? tasks.length : 0,
-                text: newTask,
-                completed: false
-            });
-            return tasks;
+
+            if (!tasks.some(item => item.text === newTask)) {
+                tasks.push({
+                    id: tasks.length !== 0 ? tasks.length : 0,
+                    text: newTask,
+                    completed: false
+                });
+
+                return tasks;
+            }
+            alert("Задача уже добавлена");
         });
     }
 
