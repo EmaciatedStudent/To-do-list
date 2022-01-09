@@ -1,0 +1,22 @@
+.taskInput {
+    width: 100%;
+    text-align: center;
+}
+
+.taskInput input {
+    padding: 0.5% 1% 0.5% 1% ;
+    width: 80%;
+    border: none;
+    font-size: 18pt;
+    border: 2px solid #9CC0A0;
+    border-radius: 5px;
+}
+
+.acceptButton {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: url(./add.png) no-repeat;
+    background-position: center;
+    vertical-align:bottom;
+}

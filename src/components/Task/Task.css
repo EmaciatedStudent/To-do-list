@@ -1,0 +1,39 @@
+.task {
+    border-bottom: 2px solid #9CC0A0;
+    margin: 1%;
+}
+
+.task *{
+    display: inline-block;
+}
+
+.task input {
+    margin: 0 3% 0 3%;
+}
+
+.task p {
+    margin: 1% 0 1% 0;
+}
+
+.task button {
+    float: right;
+    margin: 0;
+}
+
+.changingButton {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: url(./pencil.png) no-repeat;
+    background-size: 25px 25px;
+    background-position: center;
+}
+
+.deletingButton {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: url(./trash.png) no-repeat;
+    background-size: 30px 30px;
+    background-position: center;
+}

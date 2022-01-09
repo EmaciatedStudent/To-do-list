@@ -1,4 +1,5 @@
 import React from "react";
+import "./TaskInput.css"
 
 class TaskInput extends React.Component {
     constructor() {
@@ -12,7 +13,7 @@ class TaskInput extends React.Component {
     addNewTask = () => {
         const {input} = this.state;
         
-        if (input != "") {
+        if (input !== "") {
             this.props.addNewTask(input);
             this.setState({input: ""});
         }
@@ -24,16 +25,21 @@ class TaskInput extends React.Component {
         });
     }
 
+    handleEnter = (event) => {
+        if (event.key === 'Enter')
+            this.addNewTask();
+    }
+
     render() {
         const {input} = this.state;
 
         return (
             <div className="taskInput">
-                <input 
-                    name="newTask"
+                <input
                     placeholder="Введите задачу"
                     value={input}
                     onChange={this.handleChange}
+                    onKeyPress={this.handleEnter}
                     />
                 <button
                     className="acceptButton"
